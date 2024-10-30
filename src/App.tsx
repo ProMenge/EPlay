@@ -1,8 +1,15 @@
+import Banner from './components/Banner'
+import Header from './components/Header'
+import { GlobalCss } from './styles'
+
 function App() {
   return (
     <>
-      <h1>OLAAAA</h1>
-      <h2>Mundo</h2>
+      <GlobalCss />
+      <div className="container">
+        <Header />
+      </div>
+      <Banner />
     </>
   )
 }
