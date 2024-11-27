@@ -12,6 +12,9 @@ export const Image = styled.div`
   .container {
     position: relative;
     padding-top: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 
   ${TagContainer} {
