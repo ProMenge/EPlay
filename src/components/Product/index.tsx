@@ -1,26 +1,46 @@
 import Tag from '../Tag'
-import * as enums from '../../utils/enums/Tags'
+import { Tag as TagEnum } from '../../utils/enums/Tags'
 
-import { Card, Description, Title } from './styles'
+import { Card, Description, Title, Infos } from './styles'
 
-const Product = () => {
+type Props = {
+  title: string
+  category: string
+  system: string
+  description: string
+  infos: string[]
+  image: string
+  tagCategory: TagEnum
+  tagSystem: TagEnum
+  tagInfo: TagEnum
+}
+
+const Product = ({
+  title,
+  category,
+  system,
+  description,
+  infos,
+  image,
+  tagCategory,
+  tagSystem,
+  tagInfo
+}: Props) => {
   return (
     <Card>
-      <img
-        src="https://scale.coolshop-cdn.com/product-media.coolshop-cdn.com/23NP6E/2c7c89a-7b95430ba898a672e111d553.jpg/f/monster-hunter-wilds.jpg?height=650"
-        alt=""
-        width={222}
-        height={250}
-      />
-      <Title>title</Title>
-      <Tag tag={enums.Tag.ACTION}>Action</Tag>
-      <Tag tag={enums.Tag.WINDOWS}>Windows</Tag>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-        nesciunt ad, maxime, labore ducimus dolorem, neque vitae mollitia
-        veritatis iste vel sed pariatur? Hic enim cumque consequuntur? Autem,
-        laudantium molestias?
-      </Description>
+      <img src={image} alt={title} width={222} height={250} />
+
+      <Infos>
+        {infos.map((info) => (
+          <Tag tag={tagInfo} key={info}>
+            {info}
+          </Tag>
+        ))}
+      </Infos>
+      <Title>{title}</Title>
+      <Tag tag={tagCategory}>{category}</Tag>
+      <Tag tag={tagSystem}>{system}</Tag>
+      <Description>{description}</Description>
     </Card>
   )
 }

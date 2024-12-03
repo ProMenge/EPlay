@@ -12,7 +12,8 @@ const routes = createBrowserRouter([
     element: (
       <>
         <Banner />
-        <ProductsList title="Teste" background="gray" />
+        <ProductsList title="Promotion" background="gray" />
+        <ProductsList title="Coming Soon" background="black" />
       </>
     )
   }
