@@ -17,7 +17,7 @@ export const TagContainer = styled.div<Props & { tag: Tag }>`
       case Tag.RPG:
         return colors.darkGreen
       case Tag.FIGHT:
-        return colors.gray
+        return colors.darkPurple
       case Tag.FPS:
         return colors.teal
       case Tag.PS5:

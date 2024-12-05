@@ -12,7 +12,6 @@ type Props = {
   image: string
   tagCategory: TagEnum
   tagSystem: TagEnum
-  tagInfo: TagEnum
 }
 
 const Product = ({
@@ -23,8 +22,7 @@ const Product = ({
   infos,
   image,
   tagCategory,
-  tagSystem,
-  tagInfo
+  tagSystem
 }: Props) => {
   return (
     <Card>
@@ -32,7 +30,7 @@ const Product = ({
 
       <Infos>
         {infos.map((info) => (
-          <Tag tag={tagInfo} key={info}>
+          <Tag tag={TagEnum.NUMBER} key={info}>
             {info}
           </Tag>
         ))}

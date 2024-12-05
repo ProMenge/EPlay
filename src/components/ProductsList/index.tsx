@@ -1,51 +1,33 @@
 import Product from '../Product'
 import { List, Container, Title } from './styles'
-import * as enums from '../../utils/enums/Tags'
+//import * as enums from '../../utils/enums/Tags'
+import Game from '../../models/Game'
 
 export type Props = {
   title: string
   background: 'gray' | 'black'
+  games: Game[]
 }
 
-const ProductsList = ({ background, title }: Props) => {
+const ProductsList = ({ background, title, games }: Props) => {
   return (
     <Container background={background}>
       <div className="container">
         <Title>{title}</Title>
         <List>
-          <Product
-            category="Action"
-            description="Teste"
-            image="https://scale.coolshop-cdn.com/product-media.coolshop-cdn.com/23NP6E/2c7c89a-7b95430ba898a672e111d553.jpg/f/monster-hunter-wilds.jpg?height=650"
-            system="PS4"
-            infos={['-10%', 'R$ 250.00']}
-            tagCategory={enums.Tag.ACTION}
-            tagSystem={enums.Tag.PS5}
-            title="Monster Hunter Wilds"
-            tagInfo={enums.Tag.NUMBER}
-          />
-          <Product
-            category="Action"
-            description="Teste"
-            image="https://scale.coolshop-cdn.com/product-media.coolshop-cdn.com/23NP6E/2c7c89a-7b95430ba898a672e111d553.jpg/f/monster-hunter-wilds.jpg?height=650"
-            system="PS4"
-            infos={['-10%', 'R$ 250.00']}
-            tagCategory={enums.Tag.ACTION}
-            tagSystem={enums.Tag.PS5}
-            title="Monster Hunter Wilds"
-            tagInfo={enums.Tag.NUMBER}
-          />
-          <Product
-            category="Action"
-            description="Teste"
-            image="https://scale.coolshop-cdn.com/product-media.coolshop-cdn.com/23NP6E/2c7c89a-7b95430ba898a672e111d553.jpg/f/monster-hunter-wilds.jpg?height=650"
-            system="PS4"
-            infos={['-10%', 'R$ 250.00']}
-            tagCategory={enums.Tag.ACTION}
-            tagSystem={enums.Tag.PS5}
-            title="Monster Hunter Wilds"
-            tagInfo={enums.Tag.NUMBER}
-          />
+          {games.map((game) => (
+            <Product
+              key={game.id}
+              category={game.category}
+              description={game.description}
+              image={game.image}
+              system={game.system}
+              infos={game.infos}
+              tagCategory={game.tagCategory}
+              tagSystem={game.tagSystem}
+              title={game.title}
+            />
+          ))}
         </List>
       </div>
     </Container>
