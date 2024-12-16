@@ -1,7 +1,7 @@
-import Tag from '../Tag'
 import { Tag as TagEnum } from '../../utils/enums/Tags'
+import Tag from '../Tag'
 
-import { Card, Description, Title, Infos } from './styles'
+import { Card, Description, Infos, Title } from './styles'
 
 type Props = {
   title: string

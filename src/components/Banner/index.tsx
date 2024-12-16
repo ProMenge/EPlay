@@ -1,8 +1,8 @@
-import { Image, Title, Prices } from './styles'
 import bannerImg from '../../assets/images/Banner.png'
-import Tag from '../Tag'
 import * as enums from '../../utils/enums/Tags'
 import Button from '../Button'
+import Tag from '../Tag'
+import { Image, Prices, Title } from './styles'
 
 const Banner = () => {
   return (

@@ -1,12 +1,12 @@
+import diablo from '../../assets/images/DiabloIV.png'
+import fifa23 from '../../assets/images/Fifa23.png'
+import starwars from '../../assets/images/JediSurvivor.png'
+import resident from '../../assets/images/Resident.png'
+import street from '../../assets/images/StreetFighter.png'
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 import Game from '../../models/Game'
 import * as enums from '../../utils/enums/Tags'
-import resident from '../../assets/images/Resident.png'
-import diablo from '../../assets/images/DiabloIV.png'
-import street from '../../assets/images/StreetFighter.png'
-import starwars from '../../assets/images/JediSurvivor.png'
-import fifa23 from '../../assets/images/Fifa23.png'
 
 const promotions: Game[] = [
   {

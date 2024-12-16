@@ -1,5 +1,5 @@
 import Product from '../Product'
-import { List, Container, Title } from './styles'
+import { Container, List, Title } from './styles'
 //import * as enums from '../../utils/enums/Tags'
 import Game from '../../models/Game'
 

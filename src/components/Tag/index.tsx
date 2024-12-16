@@ -1,5 +1,5 @@
-import { TagContainer } from './styles'
 import { Tag as TagEnum } from '../../utils/enums/Tags'
+import { TagContainer } from './styles'
 
 export type Props = {
   size?: 'small' | 'big'

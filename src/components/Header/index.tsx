@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import cart from '../../assets/images/shopping-cart.svg'
-import { HeaderBar, LinkItem, Links, CartLink } from './styles'
 import logo from '../../assets/images/logo.svg'
+import cart from '../../assets/images/shopping-cart.svg'
+import { CartLink, HeaderBar, LinkItem, Links } from './styles'
 
 const Header = () => {
   return (
