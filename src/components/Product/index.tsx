@@ -24,6 +24,13 @@ const Product = ({
   tagCategory,
   tagSystem
 }: Props) => {
+  const getDescription = (newDescription: string) => {
+    if (newDescription.length > 95) {
+      return newDescription.slice(0, 92) + '...'
+    }
+
+    return newDescription
+  }
   return (
     <Card>
       <img src={image} alt={title} width={222} height={250} />
@@ -38,7 +45,7 @@ const Product = ({
       <Title>{title}</Title>
       <Tag tag={tagCategory}>{category}</Tag>
       <Tag tag={tagSystem}>{system}</Tag>
-      <Description>{description}</Description>
+      <Description>{getDescription(description)}</Description>
     </Card>
   )
 }

@@ -9,10 +9,7 @@ import Zoom from '../../assets/images/Zoom.png'
 import Close from '../../assets/images/close.png'
 import { useState } from 'react'
 
-interface GalleryItem {
-  type: 'image' | 'video'
-  url: string
-}
+import { GalleryItem } from '../../pages/Home'
 
 const mock: GalleryItem[] = [
   {

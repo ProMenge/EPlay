@@ -15,7 +15,9 @@ export const colors = {
   teal: '#008080', // FPS
   darkGreen: '#006400', // RPG
   yellow: '#FFD700', // Ação
-  lightBlue: '#1E90FF' // Fallback/other
+  lightBlue: '#1E90FF', // Fallback/other
+  steamBlue: '#1b2838',
+  amethyst: '#9B59B6'
 }
 
 export const GlobalCss = createGlobalStyle`

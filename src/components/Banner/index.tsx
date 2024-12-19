@@ -1,21 +1,36 @@
-import bannerImg from '../../assets/images/Banner.png'
+import { useEffect, useState } from 'react'
+
 import * as enums from '../../utils/enums/Tags'
+import { Game } from '../../pages/Home'
+import { formatPriceToBrl } from '../ProductsList'
 import Button from '../Button'
 import Tag from '../Tag'
 import { Image, Prices, Title } from './styles'
 
 const Banner = () => {
+  const [game, setGame] = useState<Game>()
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
+      .then((res) => res.json())
+      .then((res) => setGame(res))
+  }, [])
+
+  if (!game) {
+    return <h3>Loading...</h3>
+  }
+
   return (
-    <Image style={{ backgroundImage: `url(${bannerImg})` }}>
+    <Image style={{ backgroundImage: `url(${game?.media.cover})` }}>
       <div className="container">
         <Tag size="big" tag={enums.Tag.NUMBER}>
           Highlight of the day
         </Tag>
         <div>
-          <Title>Marvel&apos;s Spider-Man: Miles Morales PS4 & PS5</Title>
+          <Title>{game.name}</Title>
           <Prices>
-            <span>From R$70,00</span> <br />
-            For just R$ 39,90
+            From <span>{formatPriceToBrl(game.prices.old)}</span> <br />
+            For just {formatPriceToBrl(game.prices.current)}
           </Prices>
         </div>
         <Button

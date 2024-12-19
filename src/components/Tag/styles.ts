@@ -25,9 +25,13 @@ export const TagContainer = styled.div<Props & { tag: Tag }>`
       case Tag.SWITCH:
         return colors.red // cor coerente com Switch
       case Tag.XBOX:
-        return colors.green // cor coerente com Xbox
+        return colors.green
+      case Tag.STEAM:
+        return colors.steamBlue
       case Tag.WINDOWS:
-        return colors.darkGray // cor coerente com Windows
+        return colors.darkGray
+      case Tag.SIMULATION:
+        return colors.amethyst
       default:
         return colors.lightBlue // cor padrão
     }
