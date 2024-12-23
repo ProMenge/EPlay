@@ -1,41 +1,24 @@
 import Section from '../Section'
-import { Item, Items, Action, Modal, ModalContent } from './styles'
+import { Action, Item, Items, Modal, ModalContent } from './styles'
 
-import spider from '../../assets/images/Banner.png'
-
-import Hogwarts from '../../assets/images/HogwartsHero.png'
+import { useState } from 'react'
 import Play from '../../assets/images/Play.png'
 import Zoom from '../../assets/images/Zoom.png'
 import Close from '../../assets/images/close.png'
-import { useState } from 'react'
 
 import { GalleryItem } from '../../pages/Home'
-
-const mock: GalleryItem[] = [
-  {
-    type: 'image',
-    url: Hogwarts
-  },
-  {
-    type: 'image',
-    url: spider
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/1O6Qstncpnc?si=a1whlvTHeoaX861E'
-  }
-]
 
 type Props = {
   defaultCover: string
   name: string
+  items: GalleryItem[]
 }
 
 interface ModalState extends GalleryItem {
   isVisisble: boolean
 }
 
-const Gallery = ({ defaultCover, name }: Props) => {
+const Gallery = ({ defaultCover, name, items }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisisble: false,
     type: 'image',
@@ -64,7 +47,7 @@ const Gallery = ({ defaultCover, name }: Props) => {
     <>
       <Section background="black" title="Gallery">
         <Items>
-          {mock.map((media, index) => (
+          {items.map((media, index) => (
             <Item
               key={media.url}
               onClick={() =>

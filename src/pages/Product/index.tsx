@@ -1,43 +1,46 @@
 import { useParams } from 'react-router-dom'
+import Gallery from '../../components/Gallery'
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
-import Gallery from '../../components/Gallery'
 
-import resident from '../../assets/images/Resident.png'
+import { useEffect, useState } from 'react'
+import { Game } from '../Home'
 
 const Product = () => {
   const { id } = useParams()
 
+  const [game, setGame] = useState<Game>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
+      .then((res) => res.json())
+      .then((res) => setGame(res))
+  }, [id])
+
+  if (!game) {
+    return <h3>Loading...</h3>
+  }
+
   return (
     <>
-      <Hero />
+      <Hero game={game} />
       <Section title="About the game" background="black">
-        <p>
-          Hogwarts Legacy é um RPG de ação imersivo e de mundo aberto ambientado
-          no mundo introduzido pela primeira vez nos livros do Harry Potter.
-          Embarque em uma jornada por locais novos e familiares enquanto explora
-          e descubra animais fantásticos, personalize seu personagem e crie
-          poções, domine o lançamento de feitiços, aprimore talentos e torne-se
-          o bruxo que deseja ser.Experimente Hogwarts da década de 1800. Seu
-          personagem é um estudante com chave de um antigo segredo que ameaça
-          destruir o mundo bruxo. Faça aliados, lute contra os bruxos das trevas
-          e decida o destino do mundo bruxo. Seu legado é o que você faz dele.
-          Viva o Inesperado.
-        </p>
+        <p>{game.description}</p>
       </Section>
       <Section title="More details" background="gray">
         <p>
-          <b>Plataforma:</b> PlayStation 5 <br />
-          <b>Desenvolvedor:</b> Avalanche Software <br />
-          <b>Editora:</b> Portkey Games, subsidiária da Warner Bros. Interactive
-          Entertainment <br />
-          <b>Idiomas:</b> O jogo oferece suporte a diversos idiomas, incluindo
-          inglês, espanhol, francês, alemão, italiano, português, entre outros.
-          As opções de áudio e legendas podem ser ajustadas nas configurações do
-          jogo.
+          <b>Plataforma:</b> {game.details.system} <br />
+          <b>Desenvolvedor:</b> {game.details.developer} <br />
+          <b>Editora:</b> {game.details.publisher} <br />
+          <b>Idiomas:</b> O jogo oferece suporte a diversos idiomas, incluindo{' '}
+          {game.details.languages.join(', ')}
         </p>
       </Section>
-      <Gallery name="Hogwarts Legacy" defaultCover={resident} />
+      <Gallery
+        name={game.name}
+        defaultCover={game.media.cover}
+        items={game.media.gallery}
+      />
     </>
   )
 }

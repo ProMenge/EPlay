@@ -1,7 +1,7 @@
+import { Game } from '../../pages/Home'
+import * as enums from '../../utils/enums/Tags'
 import Product from '../Product'
 import { Container, List, Title } from './styles'
-import * as enums from '../../utils/enums/Tags'
-import { Game } from '../../pages/Home'
 
 export type Props = {
   title: string
@@ -50,23 +50,26 @@ const ProductsList = ({ background, title, games }: Props) => {
 
     return enums.Tag.NUMBER
   }
+
   return (
     <Container background={background}>
       <div className="container">
         <Title>{title}</Title>
         <List>
           {games.map((game) => (
-            <Product
-              key={game.id}
-              category={game.details.category}
-              description={game.description}
-              image={game.media.thumbnail}
-              system={game.details.system}
-              infos={getGameTags(game)}
-              tagCategory={categoryTagIdentifier(game)}
-              tagSystem={systemTagIdentifier(game)}
-              title={game.name}
-            />
+            <li key={game.id}>
+              <Product
+                id={game.id}
+                category={game.details.category}
+                description={game.description}
+                image={game.media.thumbnail}
+                system={game.details.system}
+                infos={getGameTags(game)}
+                tagCategory={categoryTagIdentifier(game)}
+                tagSystem={systemTagIdentifier(game)}
+                title={game.name}
+              />
+            </li>
           ))}
         </List>
       </div>

@@ -12,6 +12,7 @@ type Props = {
   image: string
   tagCategory: TagEnum
   tagSystem: TagEnum
+  id: number
 }
 
 const Product = ({
@@ -22,7 +23,8 @@ const Product = ({
   infos,
   image,
   tagCategory,
-  tagSystem
+  tagSystem,
+  id
 }: Props) => {
   const getDescription = (newDescription: string) => {
     if (newDescription.length > 95) {
@@ -32,7 +34,7 @@ const Product = ({
     return newDescription
   }
   return (
-    <Card>
+    <Card to={`/product/${id}`}>
       <img src={image} alt={title} width={222} height={250} />
 
       <Infos>

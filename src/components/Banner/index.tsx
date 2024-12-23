@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import * as enums from '../../utils/enums/Tags'
 import { Game } from '../../pages/Home'
-import { formatPriceToBrl } from '../ProductsList'
+import * as enums from '../../utils/enums/Tags'
 import Button from '../Button'
+import { formatPriceToBrl } from '../ProductsList'
 import Tag from '../Tag'
 import { Image, Prices, Title } from './styles'
 
@@ -35,7 +35,7 @@ const Banner = () => {
         </div>
         <Button
           type="link"
-          to="/products"
+          to={`/product/${game.id}`}
           title="Click here to enjoy the offer!"
         >
           {' '}
