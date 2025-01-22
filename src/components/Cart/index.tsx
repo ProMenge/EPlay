@@ -23,8 +23,9 @@ const Cart = () => (
             <h3>Nome do jogo</h3>
             <Tag tag={enums.Tag.RPG}> RPG</Tag>
             <Tag tag={enums.Tag.PS5}> PS5</Tag>
+            <span>R$150,00</span>
           </div>
-          <span>R$150,00</span>
+          <button type="button" />
         </CartItem>
       </ul>
       <Quantiy>2 jogos no carrinho</Quantiy>
