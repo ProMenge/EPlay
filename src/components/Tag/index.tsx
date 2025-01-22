@@ -3,7 +3,7 @@ import { TagContainer } from './styles'
 
 export type Props = {
   size?: 'small' | 'big'
-  children: string
+  children: string | string[]
   tag: TagEnum
 }
 

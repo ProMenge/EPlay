@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Rotas from './routes'
 import { GlobalCss } from './styles'
 import store from './redux/store'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         </div>
         <Rotas />
         <Footer />
+        <Cart />
       </BrowserRouter>
     </Provider>
   )
