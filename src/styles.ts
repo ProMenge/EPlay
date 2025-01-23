@@ -20,6 +20,11 @@ export const colors = {
   amethyst: '#9B59B6'
 }
 
+export const breakpoints = {
+  desktops: '1024px',
+  tablets: '768px'
+}
+
 export const GlobalCss = createGlobalStyle`
   *{
     margin: 0;
@@ -38,5 +43,10 @@ export const GlobalCss = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: ${breakpoints.desktops}) {
+
+      max-width: 80%
+    }
   }
 `
