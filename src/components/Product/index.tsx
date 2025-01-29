@@ -1,7 +1,8 @@
 import { Tag as TagEnum } from '../../utils/enums/Tags'
+
 import Tag from '../Tag'
 
-import { Card, Description, Infos, Title } from './styles'
+import * as S from './styles'
 
 type Props = {
   title: string
@@ -34,21 +35,24 @@ const Product = ({
     return newDescription
   }
   return (
-    <Card to={`/product/${id}`}>
+    <S.Card
+      title={`Clique aqui para ver mais detalhes do jogo: ${title}`}
+      to={`/product/${id}`}
+    >
       <img src={image} alt={title} width={222} height={250} />
 
-      <Infos>
+      <S.Infos>
         {infos.map((info) => (
           <Tag tag={TagEnum.NUMBER} key={info}>
             {info}
           </Tag>
         ))}
-      </Infos>
-      <Title>{title}</Title>
+      </S.Infos>
+      <S.Title>{title}</S.Title>
       <Tag tag={tagCategory}>{category}</Tag>
       <Tag tag={tagSystem}>{system}</Tag>
-      <Description>{getDescription(description)}</Description>
-    </Card>
+      <S.Description>{getDescription(description)}</S.Description>
+    </S.Card>
   )
 }
 

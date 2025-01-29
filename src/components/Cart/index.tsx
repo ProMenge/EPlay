@@ -1,19 +1,13 @@
-import Button from '../Button'
-
-import {
-  Overlay,
-  CartContainer,
-  Sidebar,
-  Prices,
-  Quantiy,
-  CartItem
-} from './styles'
-import Tag from '../Tag'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/root-reducer'
+
+import Button from '../Button'
+import Tag from '../Tag'
+
+import * as S from './styles'
 import { close, remove } from '../../redux/cart/slice'
-import { systemTagIdentifier, categoryTagIdentifier } from '../Hero'
-import { formatPriceToBrl } from '../ProductsList'
+import { systemTagIdentifier, categoryTagIdentifier } from '../../utils/index'
+import { parseToBrl } from '../../utils'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootState) => state.cartReducer)
@@ -34,12 +28,12 @@ const Cart = () => {
     }, 0)
   }
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <Sidebar>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={closeCart} />
+      <S.Sidebar>
         <ul>
           {items.map((item) => (
-            <CartItem key={item.id}>
+            <S.CartItem key={item.id}>
               <img src={item.media.thumbnail} />
               <div>
                 <h3>{item.name}</h3>
@@ -51,22 +45,22 @@ const Cart = () => {
                   {' '}
                   {item.details.system}
                 </Tag>
-                <span>{formatPriceToBrl(item.prices.current)}</span>
+                <span>{parseToBrl(item.prices.current)}</span>
               </div>
               <button onClick={() => removeGame(item.id)} type="button" />
-            </CartItem>
+            </S.CartItem>
           ))}
         </ul>
-        <Quantiy>{items.length} jogos no carrinho</Quantiy>
-        <Prices>
-          Total de {formatPriceToBrl(getTotalPrice())}{' '}
+        <S.Quantiy>{items.length} jogos no carrinho</S.Quantiy>
+        <S.Prices>
+          Total de {parseToBrl(getTotalPrice())}{' '}
           <span>Em até 6x sem juros</span>
-        </Prices>
+        </S.Prices>
         <Button title="Clique aqui para continuar com a compra" type="button">
           Continuar com a compra
         </Button>
-      </Sidebar>
-    </CartContainer>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 

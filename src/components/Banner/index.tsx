@@ -1,10 +1,10 @@
-import * as enums from '../../utils/enums/Tags'
-import Button from '../Button'
-import { formatPriceToBrl } from '../ProductsList'
 import Tag from '../Tag'
-import { Image, Prices, Title } from './styles'
+import Button from '../Button'
 
+import * as enums from '../../utils/enums/Tags'
 import { useGetFeaturedGameQuery } from '../../services/api'
+import { parseToBrl } from '../../utils'
+import * as S from './styles'
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
@@ -14,17 +14,17 @@ const Banner = () => {
   }
 
   return (
-    <Image style={{ backgroundImage: `url(${game?.media.cover})` }}>
+    <S.Image style={{ backgroundImage: `url(${game?.media.cover})` }}>
       <div className="container">
         <Tag size="big" tag={enums.Tag.NUMBER}>
           Highlight of the day
         </Tag>
         <div>
-          <Title>{game.name}</Title>
-          <Prices>
-            From <span>{formatPriceToBrl(game.prices.old)}</span> <br />
-            For just {formatPriceToBrl(game.prices.current)}
-          </Prices>
+          <S.Title>{game.name}</S.Title>
+          <S.Prices>
+            From <span>{parseToBrl(game.prices.old)}</span> <br />
+            For just {parseToBrl(game.prices.current)}
+          </S.Prices>
         </div>
         <Button
           type="link"
@@ -35,7 +35,7 @@ const Banner = () => {
           Enjoy it!{' '}
         </Button>
       </div>
-    </Image>
+    </S.Image>
   )
 }
 

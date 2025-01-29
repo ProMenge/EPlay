@@ -1,38 +1,17 @@
-import * as enums from '../../utils/enums/Tags'
+import { useDispatch } from 'react-redux'
+
+import Button from '../Button'
 import Tag from '../Tag'
 
+import { parseToBrl } from '../../utils'
+import * as S from './styles'
 import { Game } from '../../pages/Home'
-import Button from '../Button'
-import { formatPriceToBrl } from '../ProductsList'
-import { Banner, Infos } from './styles'
-import { useDispatch } from 'react-redux'
+import { systemTagIdentifier, categoryTagIdentifier } from '../../utils'
 
 import { add, open } from '../../redux/cart/slice'
 
 type Props = {
   game: Game
-}
-
-export const systemTagIdentifier = (games: Game) => {
-  if (games.details.system === 'PS5') return enums.Tag.PS5
-  if (games.details.system === 'SWITCH') return enums.Tag.SWITCH
-  if (games.details.system === 'XBOX') return enums.Tag.XBOX
-  if (games.details.system === 'Steam') return enums.Tag.STEAM
-  if (games.details.system === 'windows') return enums.Tag.WINDOWS
-
-  return enums.Tag.WINDOWS
-}
-
-export const categoryTagIdentifier = (games: Game) => {
-  if (games.details.category === 'Ação') return enums.Tag.ACTION
-  if (games.details.category === 'Esporte') return enums.Tag.SPORTS
-  if (games.details.category === 'Simulação') return enums.Tag.SIMULATION
-  if (games.details.category === 'Aventura') return enums.Tag.ADVENTURE
-  if (games.details.category === 'Luta') return enums.Tag.FIGHT
-  if (games.details.category === 'FPS') return enums.Tag.FPS
-  if (games.details.category === 'RPG') return enums.Tag.RPG
-
-  return enums.Tag.NUMBER
 }
 
 const Hero = ({ game }: Props) => {
@@ -44,21 +23,21 @@ const Hero = ({ game }: Props) => {
   }
 
   return (
-    <Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
+    <S.Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
       <div className="container">
         <div>
           <Tag tag={categoryTagIdentifier(game)}>{game.details.category}</Tag>
           <Tag tag={systemTagIdentifier(game)}>{game.details.system}</Tag>
         </div>
-        <Infos>
+        <S.Infos>
           <h2>{game.name}</h2>
           <p>
             {game.prices.discount && (
-              <span>From {formatPriceToBrl(game.prices.old)}</span>
+              <span>From {parseToBrl(game.prices.old)}</span>
             )}
 
             {game.prices.current && (
-              <>For {formatPriceToBrl(game.prices.current)}</>
+              <p>For {parseToBrl(game.prices.current)}</p>
             )}
           </p>
 
@@ -72,9 +51,9 @@ const Hero = ({ game }: Props) => {
               Add to Cart{' '}
             </Button>
           )}
-        </Infos>
+        </S.Infos>
       </div>
-    </Banner>
+    </S.Banner>
   )
 }
 

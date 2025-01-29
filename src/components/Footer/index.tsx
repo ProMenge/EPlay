@@ -1,47 +1,82 @@
-import { Container, FooterSection, Link, Links, SectionTitle } from './styles'
+import * as S from './styles'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
   return (
-    <Container>
+    <S.Container>
       <div className="container">
-        <FooterSection>
-          <SectionTitle>Categories</SectionTitle>
-          <Links>
+        <S.FooterSection>
+          <S.SectionTitle>Categories</S.SectionTitle>
+          <S.Links>
             <li>
-              <Link to="/categories#rpg">RPG</Link>
+              <S.Link
+                title="Clique aqui para acessar jogos de RPG"
+                to="/categories#rpg"
+              >
+                RPG
+              </S.Link>
             </li>
             <li>
-              <Link to="/categories#action">Action</Link>
+              <S.Link
+                title="Clique aqui para acessar jogos de ação"
+                to="/categories#action"
+              >
+                Action
+              </S.Link>
             </li>
             <li>
-              <Link to="/categories#sports">Sports</Link>
+              <S.Link
+                title="Clique aqui para acessar jogos de esportes"
+                to="/categories#sports"
+              >
+                Sports
+              </S.Link>
             </li>
             <li>
-              <Link to="/categories#simulation">Simulation</Link>
+              <S.Link
+                title="Clique aqui para acessar jogos de simulação"
+                to="/categories#simulation"
+              >
+                Simulation
+              </S.Link>
             </li>
             <li>
-              <Link to="/categories#fight">Fight</Link>
+              <S.Link
+                title="Clique aqui para acessar jogos de luta"
+                to="/categories#fight"
+              >
+                Fight
+              </S.Link>
             </li>
-          </Links>
-        </FooterSection>
-        <FooterSection>
-          <SectionTitle>Shortcut</SectionTitle>
-          <Links>
+          </S.Links>
+        </S.FooterSection>
+        <S.FooterSection>
+          <S.SectionTitle>Shortcut</S.SectionTitle>
+          <S.Links>
             <li>
-              <Link to="/#on-sale">Promotion</Link>
+              <S.Link
+                title="Clique aqui para acessar a seção de jogos em promoção"
+                to="/#on-sale"
+              >
+                Promotion
+              </S.Link>
             </li>
             <li>
-              <Link to="/#coming-soon">Coming Soon</Link>
+              <S.Link
+                title="Clique aqui para acessar a seção de jogos que serão lançados em breve"
+                to="/#coming-soon"
+              >
+                Coming Soon
+              </S.Link>
             </li>
-          </Links>
-        </FooterSection>
+          </S.Links>
+        </S.FooterSection>
         <p>
           {currentYear} - &copy; M-Play - All rights reserved. This website and
           its content are protect by copright laws
         </p>
       </div>
-    </Container>
+    </S.Container>
   )
 }
 
