@@ -29,3 +29,12 @@ export const categoryTagIdentifier = (games: Game) => {
 
   return enums.Tag.NUMBER
 }
+
+export const getTotalPrice = (items: Game[]) => {
+  return items.reduce((count, currentItem) => {
+    if (currentItem.prices.current) {
+      return (count = currentItem.prices.current)
+    }
+    return 0
+  }, 0)
+}
