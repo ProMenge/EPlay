@@ -1,16 +1,18 @@
 import Tag from '../Tag'
 import Button from '../Button'
+import Loader from '../Loader'
 
-import * as enums from '../../utils/enums/Tags'
 import { useGetFeaturedGameQuery } from '../../services/api'
 import { parseToBrl } from '../../utils'
+
+import * as enums from '../../utils/enums/Tags'
 import * as S from './styles'
 
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return <h3>Loading...</h3>
+    return <Loader />
   }
 
   return (
