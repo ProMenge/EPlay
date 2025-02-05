@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
-import { Navigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import InputMask from 'react-input-mask'
+import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 import * as Yup from 'yup'
 
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 
-import * as S from './styles'
 import { usePurchaseMutation } from '../../services/api'
+import * as S from './styles'
 
 import barCode from '../../assets/images/boleto.png'
 import creditCard from '../../assets/images/credit-card 1.png'

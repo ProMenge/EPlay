@@ -2,10 +2,10 @@ import ProductsList from '../../components/ProductsList'
 
 import {
   useGetActionQuery,
-  useGetSportsQuery,
   useGetFightQuery,
   useGetRPGQuery,
-  useGetSimulationQuery
+  useGetSimulationQuery,
+  useGetSportsQuery
 } from '../../services/api'
 
 const Categories = () => {
